@@ -64,3 +64,5 @@ int main(){
 
 	return 1;
 }
+
+//thank you http://stackoverflow.com/questions/18661702/passing-matrix-as-a-parameter-in-function
