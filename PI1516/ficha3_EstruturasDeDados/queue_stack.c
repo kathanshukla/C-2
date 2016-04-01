@@ -18,7 +18,7 @@ int pop(STACK *s, int* x);
 int top(STACK *s, int* x);
 
 void initStack(STACK *s){
-	s = (struct stack) malloc(sizeof(STACK));
+	s = (struct stack*) malloc(sizeof(struct stack));
 	s->sp=0;
 }
 
@@ -36,7 +36,7 @@ int push(STACK *s, int x){
 
 int pop(STACK *s, int * x){
 	if(s->sp>0){
-		*x=s->valores[s->(sp-1)];
+		*x=s->valores[s->sp-1];
 		s->sp--;
 		return 0;
 	}
@@ -45,7 +45,7 @@ int pop(STACK *s, int * x){
 
 int top(STACK *s, int* x){
 	if(s->sp>0){
-		*x=s->valores[s->(sp-1)];
+		*x=s->valores[s->sp-1];
 	}
 }
 
@@ -67,7 +67,7 @@ int front(QUEUE *q, int*x);
 
 
 void initQueue(QUEUE *q){
-	q = (QUEUE)malloc(sizeof(QUEUE));
+	q = (QUEUE*)malloc(sizeof(struct queue));
 	q->inicio=0;
 	q->tamanho=0;
 }
