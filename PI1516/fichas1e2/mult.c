@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+//This version is only for 2x2 matrices.
 
 void mult(int N, int M, int K, int r[N][M], int a[N][K], int b[K][M]){
 	
@@ -39,20 +39,15 @@ int main(){
 		}
 		printf("\n");
 	}
-	printf("=");
+	printf("=\n");
 
 
 	
-
+	/* Calling the function above */
 	mult(2,2,2,r,a,b);
-	/*for(i=0;i<N;i++){
-		for(j=0;j<M;j++){
-
-			r[i][j] = a[i][0] * b[0][j] + a[i][1]*b[1][j];
-			}
-		}*/
+	
 	//Problem solved, passed as parameters and working! TODO: more dimensions.
-			//This version is only for 2x2 matrices.
+	
 
 	//printing
 	for(i=0;i<2;++i){

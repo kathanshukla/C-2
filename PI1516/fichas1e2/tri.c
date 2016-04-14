@@ -33,7 +33,7 @@ void triv(int n){
 }
 
 int main(){
-	triv(5);
+	trih(5);
 	return 0;
 }
 /*
