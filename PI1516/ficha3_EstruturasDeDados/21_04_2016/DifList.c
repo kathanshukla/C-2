@@ -32,7 +32,7 @@ void pp(DifList l){
 
 
 LInt snoc(LInt l, int x){
-	LInt new, aux;
+	LInt new, aux=l;
 	new = (LInt) malloc(sizeof(Nodo));
 	new->valor = x;
 	new->prox = NULL;
@@ -93,6 +93,7 @@ int main(){
 	lu = snoc2(lu, 6);
 	pp(lu);
 
-
+	l = concat(l, lu);
+	pp(l);
 	return 0;
 }
