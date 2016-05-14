@@ -16,12 +16,12 @@ typedef struct nodo{
 char *strstr(char s1[], char s2[]){
 	int i,j=0; int in=0; int ou=0;
 	int ia=0, ja=0;
-// marianas    ana 
+// marianas    ana
 	/*
-	
+
 	s1 = marianas\0
 	s2 = ana\0
-	in = 1 ; 
+	in = 1 ;
 
 	in=4; ja=0; ia=4;
 
@@ -70,7 +70,7 @@ void concat3(LInt *a, LInt b){
 	LInt aux = *a;
 	if(a==NULL) a = &b;
 	while(aux->prox){
-		aux = aux->prox; 
+		aux = aux->prox;
 	}
 	aux->prox = b;
 }
@@ -85,7 +85,7 @@ LInt concat(LInt a, LInt b){
 		aux->prox=b;
 		return a;
 	}
-	
+
 }
 
 void printL(LInt a){
@@ -94,6 +94,33 @@ void printL(LInt a){
 		printf("Valor %d \n", aux->valor);
 		aux=aux->prox;
 	}
+}
+
+//Exo 4
+/*
+ *dada uma arvore binária, constroi uma lista
+ *com os valores dos elementos que estao
+ *armazenados na arvore ao nivel n.
+ * A raiz está ao nivel 1.
+ */
+LInt nivel(ABin a, int n){
+	if(a==NULL)return NULL;
+	if(n==1 && a){
+		LInt lista = (LInt)malloc(sizeof(struct slist));
+		lista->valor = a->valor;
+		lista->prox = NULL;
+		return lista;
+	}
+
+	while(n>1){
+		n--;
+		LInt * l1 = nivel(a->esq, n);
+		LInt l2 = nivel(a->dir, n);
+		concat(l1, l2);
+		return l1;
+	}
+
+
 }
 
 int main(){
@@ -128,13 +155,31 @@ int main(){
 	b->prox->valor = 40;
 	b->prox->prox= NULL;
 	printL(b);
-	
+
 	concat3(&a, b);
-	
+
 	printf("Depois do concat\n");
 
 	//a = concat(a,b);
 	printL(a);
+
+	//Testar exo4
+
+	printf("Exo 4\n");
+	ABin ar = (ABin)malloc(sizeof(struct nodo));
+	ar->valor = 50;
+	ar->esq = (ABin)malloc(sizeof(struct nodo));
+	ar->esq->valor = 30;
+		ar->esq->esq = NULL;
+		ar->esq->dir=NULL;
+
+	ar->dir = (ABin)malloc(sizeof(struct nodo));
+	ar->dir->valor = 80;
+		ar->dir->esq = NULL;
+		ar->dir->dir = NULL;
+
+	LInt lis = nivel(ar, 2);
+	printL(lis);
 
 	return 0;
 }
