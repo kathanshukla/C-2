@@ -1,0 +1,5 @@
+cloudy
+rainy
+chilly
+rainy
+rainy

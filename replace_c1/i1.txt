@@ -1,0 +1,14 @@
+cloudy
+sunny
+stormy
+snowy
+rainy
+stormy
+snowy
+chilly
+sunny
+rainy
+windy
+sunny
+snowy
+rainy
